@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Simple Angaulr App</title>
+	<link rel="stylesheet" type="text/css" href="app/css/app.css">
+</head>
+<body data-ng-app="Todo" data-ng-controller="TodoController" data-ng-init="loadTodos()">
+	<section class="container">
+		<h1>SIMPLE TODO LIST</h1>
+		<section>
+			<input type="text" placeholder="Insert Todo..." data-ng-model="newTodoTitle" data-ng-keydown="ifEnterKeyPressThenAddTodo($event)">
+			<button class="add-button" type="button" data-ng-click="addTodo()">add</button>
+		</section> 
+		<section>
+			<ul class="todo-list">
+				<li data-ng-repeat="todo in todos">
+					<article data-ng-class="{'is-complete':todo.isComplete}">
+						<label>
+							<input type="checkbox" data-ng-model="todo.isComplete">
+							<span class="todo-title">{{todo.title}}</span>
+						</label>
+						<button class="remove-button" type="button" data-ng-click="removeTodo(todo)">x</button>
+					</article>
+				</li>
+			</ul>
+			<footer>
+				<section data-ng-show="todos.length > 0">
+					{{todos.length}} {{todos.length === 1 ? 'todo' : 'todos'}}.
+				</section>
+			</footer>
+		</section>
+	</section>
+	<script type="text/javascript" src="app/lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/js/init.js"></script>
+	<script type="text/javascript" src="app/js/controllers/Todo.js"></script>
+</body>
+</html>
