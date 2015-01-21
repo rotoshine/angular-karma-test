@@ -13,7 +13,7 @@ karma start test/karma.conf.js --single-run
 npm test 혹은 karma start test/karma.conf.js
 ```
 
-# proctractor test 실행
+# protractor test 실행
 웹서버를 먼저 실행한 후 테스트를 실행해야한다.
 테스트와 같이 실행되게 하는 방법이 있을 듯 한데..
 ```
